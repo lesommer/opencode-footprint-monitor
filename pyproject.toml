@@ -1,0 +1,15 @@
+[project]
+name = "opencode-footprint-monitor"
+version = "0.1.0"
+description = "Estimate and report the environmental footprint of LLM queries made through OpenCode, using EcoLogits"
+readme = "README.md"
+license = { text = "CC0-1.0" }
+requires-python = ">=3.11"
+dependencies = [
+    # Pinned to a git commit: PyPI 0.11.1 does not yet include the GLM-5
+    # model family (zai-glm-5-3, etc.) needed for our main models.
+    "ecologits @ git+https://github.com/mlco2/ecologits.git@5d40d5316cb3b8da0b5267d9786c4c04585d0929",
+]
+
+[tool.uv]
+package = false

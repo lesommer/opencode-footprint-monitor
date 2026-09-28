@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "tool": "opencode-footprint-monitor",
+  "member": "lesommer",
+  "machine": "macbook",
+  "month": "2026-04",
+  "generated": "2026-09-28T21:47:57+00:00",
+  "electricity_mix_zone": "FRA",
+  "requests": {
+    "total": 2265,
+    "modeled": 2229,
+    "unmodeled": 36
+  },
+  "tokens": {
+    "input": 48266332,
+    "generated": 907344
+  },
+  "energy_kwh": {
+    "min": 1.7408182673210222,
+    "max": 1.7408182673210222
+  },
+  "gwp_kgco2eq": {
+    "min": 0.14159219612369167,
+    "max": 0.14159219612369167
+  },
+  "adpe_kgsbeq": {
+    "min": 3.974765125297739e-06,
+    "max": 3.974765125297739e-06
+  },
+  "pe_mj": {
+    "min": 17.091999274802106,
+    "max": 17.091999274802106
+  },
+  "wcf_l": {
+    "min": 6.530307554914905,
+    "max": 6.530307554914905
+  },
+  "mapping_breakdown": {
+    "estimated-arch": {
+      "requests": 1223,
+      "tokens_generated": 307762
+    },
+    "sibling": {
+      "requests": 1006,
+      "tokens_generated": 595390
+    }
+  },
+  "unmodeled_models": {
+    "big-pickle": 15,
+    "minimax-m2.5-free": 21
+  }
+}

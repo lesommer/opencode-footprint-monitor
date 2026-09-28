@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- opencode-footprint-monitor ---
+# Personal usage data extracted from the local OpenCode database.
+# Reports you want to share can be copied into docs/ explicitly.
+/data/
+.venv/

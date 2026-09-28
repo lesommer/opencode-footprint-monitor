@@ -1,0 +1,132 @@
+{
+  "$comment": [
+    "Mapping from OpenCode modelIDs (as recorded in the OpenCode SQLite database)",
+    "to EcoLogits model registry entries.",
+    "",
+    "mapping modes:",
+    "  native         - model exists verbatim in the EcoLogits registry",
+    "  sibling        - model not registered, mapped to a registered model with the same",
+    "                   publicly documented architecture",
+    "  estimated-arch - model not registered; registered here as a custom model with a",
+    "                   best-known architecture guess (clearly flagged in reports)",
+    "",
+    "Models absent from this file are reported as 'unmodeled' (token counts shown,",
+    "excluded from impact totals).",
+    "",
+    "Provider note: EcoLogits only knows 6 providers (anthropic, mistralai, openai,",
+    "huggingface_hub, cohere, google_genai). Models reached through the cortecs",
+    "router or the Albert API are mapped to the mistralai provider config, which",
+    "supplies the datacenter PUE (1.16) and WUE (0.09 L/kWh) assumptions.",
+    "The electricity mix zone is set independently (see electricity_mix_zone)."
+  ],
+  "electricity_mix_zone": "FRA",
+
+  "models": {
+    "glm-5.1": {
+      "ecologits_provider": "mistralai",
+      "ecologits_name": "zai-glm-5",
+      "mapping": "sibling",
+      "note": "glm-5.1 not in EcoLogits; mapped to GLM-5 entry with identical registered architecture (MoE 744B total / 40B active)"
+    },
+    "glm-5.2": {
+      "ecologits_provider": "mistralai",
+      "ecologits_name": "zai-glm-5-2",
+      "mapping": "native"
+    },
+    "glm-5.3": {
+      "ecologits_provider": "mistralai",
+      "ecologits_name": "zai-glm-5-3",
+      "mapping": "native"
+    },
+    "glm-5.3-flash": {
+      "ecologits_provider": "mistralai",
+      "ecologits_name": "glm-5.3-flash",
+      "mapping": "estimated-arch",
+      "custom_architecture": { "type": "moe", "total": 106, "active": 12 },
+      "note": "Flash variant with no published architecture; assumed GLM-Air class (MoE 106B total / 12B active)"
+    },
+    "glm-4.7-flash": {
+      "ecologits_provider": "mistralai",
+      "ecologits_name": "glm-4.7-flash",
+      "mapping": "estimated-arch",
+      "custom_architecture": { "type": "moe", "total": 106, "active": 12 },
+      "note": "Flash variant with no published architecture; assumed GLM-Air class (MoE 106B total / 12B active)"
+    },
+    "devstral-2512": {
+      "ecologits_provider": "mistralai",
+      "ecologits_name": "devstral-2512",
+      "mapping": "estimated-arch",
+      "custom_architecture": { "type": "dense", "parameters": 24 },
+      "note": "Devstral Medium class, dense 24B (served via cortecs)"
+    },
+    "devstral-small-2512": {
+      "ecologits_provider": "mistralai",
+      "ecologits_name": "devstral-small-2512",
+      "mapping": "estimated-arch",
+      "custom_architecture": { "type": "dense", "parameters": 24 },
+      "note": "Same 24B dense Devstral Medium class"
+    },
+    "qwen3-coder-30b": {
+      "ecologits_provider": "mistralai",
+      "ecologits_name": "qwen3-coder-30b",
+      "mapping": "estimated-arch",
+      "custom_architecture": { "type": "moe", "total": 30.5, "active": 3.3 },
+      "note": "Qwen3-Coder-30B-A3B-Instruct (MoE 30.5B total / 3.3B active), served on the Albert API (French infrastructure)"
+    },
+    "mistral-small-3.2-24b": {
+      "ecologits_provider": "mistralai",
+      "ecologits_name": "mistral-small-3.2-24b",
+      "mapping": "estimated-arch",
+      "custom_architecture": { "type": "dense", "parameters": 24 },
+      "note": "Mistral-Small-3.2-24B-Instruct (dense 24B) as served on the Albert API; the EcoLogits 'mistral-small-2603' entry is a different (119B MoE) deployment"
+    },
+    "ministral-3-8b": {
+      "ecologits_provider": "mistralai",
+      "ecologits_name": "ministral-8b-2512",
+      "mapping": "sibling",
+      "note": "Mapped to Ministral 8B (dense 8.02B)"
+    },
+    "gpt-oss-120b": {
+      "ecologits_provider": "huggingface_hub",
+      "ecologits_name": "openai/gpt-oss-120b",
+      "mapping": "native",
+      "note": "Open-weights GPT-OSS 120B (MoE 117B total / 5.1B active), served on the Albert API"
+    },
+    "claude-4-5-sonnet": {
+      "ecologits_provider": "anthropic",
+      "ecologits_name": "claude-sonnet-4-5-20250929",
+      "mapping": "native"
+    },
+    "claude-4-6-sonnet": {
+      "ecologits_provider": "anthropic",
+      "ecologits_name": "claude-sonnet-4-6",
+      "mapping": "native"
+    },
+    "claude-sonnet-4": {
+      "ecologits_provider": "anthropic",
+      "ecologits_name": "claude-sonnet-4-6",
+      "mapping": "sibling",
+      "note": "Claude Sonnet 4 no longer in the EcoLogits registry; mapped to Sonnet 4.6 class (MoE 440B total / 44-132B active)"
+    },
+    "claude-opus4-5": {
+      "ecologits_provider": "anthropic",
+      "ecologits_name": "claude-opus-4-5-20251101",
+      "mapping": "native"
+    },
+    "claude-opus4-7": {
+      "ecologits_provider": "anthropic",
+      "ecologits_name": "claude-opus-4-7",
+      "mapping": "native"
+    },
+    "claude-opus4-8": {
+      "ecologits_provider": "anthropic",
+      "ecologits_name": "claude-opus-4-8",
+      "mapping": "native"
+    },
+    "claude-fable-5": {
+      "ecologits_provider": "anthropic",
+      "ecologits_name": "claude-fable-5",
+      "mapping": "native"
+    }
+  }
+}
