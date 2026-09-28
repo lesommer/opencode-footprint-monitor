@@ -60,15 +60,6 @@ The methodology, assumptions and their limits are detailed in
 estimates with transparent assumptions, ideal for tracking *relative*
 changes over time; not audit-grade accounting.
 
-## Roadmap
-
-- [x] Approach A — post-hoc footprint from local OpenCode history
-- [x] Monthly snapshots + group aggregation
-- [ ] Approach B — live monitoring: LiteLLM proxy + EcoLogits OpenTelemetry
-      export, Prometheus/Grafana dashboard (see open issues)
-- [ ] Wiki section in the OPERA knowledge base (content pending review)
-- [ ] Trend tracker (compare dated report snapshots)
-
 ## References
 
 - EcoLogits: https://ecologits.ai — library by the
