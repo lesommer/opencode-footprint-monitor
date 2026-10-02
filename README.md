@@ -1,4 +1,4 @@
-# opencode-footprint-monitor
+#  Monitoring the environmental footprint of our opencode sessions 
 
 Documentation + code for monitoring the environmental footprint of querying
 LLMs through [OpenCode](https://opencode.ai), using the open-source
